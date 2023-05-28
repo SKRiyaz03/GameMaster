@@ -21,20 +21,20 @@ module.exports.connectToDb = async () => {
       console.error(error);
       process.exit(1);
     });
-    const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
-    client.connect((err) => {
-      if (err) {
-        console.error('Failed to connect to MongoDB:', err);
-        process.exit(1);
-      }
-      console.log('Connected to MongoDB client');
-    });
-    
-    const db = client.db();
-    const bucket = new GridFSBucket(db, {
-      bucketName: 'avatars'
-    });
-};
+  };
+const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect((err) => {
+  if (err) {
+    console.error('Failed to connect to MongoDB:', err);
+    process.exit(1);
+  }
+  console.log('Connected to MongoDB client');
+});
+
+const db = client.db();
+var bucket = new GridFSBucket(db, {
+  bucketName: 'avatars'
+});
 
 
 
