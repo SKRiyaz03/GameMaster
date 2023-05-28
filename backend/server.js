@@ -7,32 +7,37 @@ const url = `${process.env.MONGO_URL}`;
 const bcrypt = require('bcryptjs');
 const { ObjectId } = require('mongodb');
 
-
+mongoose.set('strictQuery', false);
 /**
  * Connect to MongoDB Atlas
  */
-mongoose.connect(url, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-  .then(() => console.log("Connected to MongoDB Atlas"))
-  .catch(error => console.error(error));
+module.exports.connectToDb = async () => {
+  const conn = mongoose.connect(url, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+    .then(() => console.log(`Connected to MongoDB Atlas`))
+    .catch((error) => {
+      console.error(error);
+      process.exit(1);
+    });
+    const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
+    client.connect((err) => {
+      if (err) {
+        console.error('Failed to connect to MongoDB:', err);
+        process.exit(1);
+      }
+      console.log('Connected to MongoDB client');
+    });
+    
+    const db = client.db();
+    const bucket = new GridFSBucket(db, {
+      bucketName: 'avatars'
+    });
+};
 
 
 
-const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect((err) => {
-  if (err) {
-    console.error('Failed to connect to MongoDB:', err);
-    return;
-  }
-  console.log('Connected to MongoDB client');
-});
-
-const db = client.db();
-const bucket = new GridFSBucket(db, {
-  bucketName: 'avatars'
-});
 /**
  *  get player document
  * @param {Sting} username 

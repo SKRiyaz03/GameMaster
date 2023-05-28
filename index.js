@@ -10,7 +10,6 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 const key = process.env.KEY;
 const saltRounds = 10;
-
 app.use(bodyparser.urlencoded({extended: true}));
 app.use(bodyparser.json());
 app.set('view engine', 'ejs');
@@ -226,21 +225,6 @@ app.get('/avatar/:id', async (req, res) => {
  * @returns
  * 
 */
-// app.post('/profile/change', upload.single("avatar"), async (req, res) => {
-//     console.log(req.body);
-//     const {displayName, newPassword} = req.body;
-//     if(newPassword === '' && displayName === '' && req.file === undefined){
-//         console.log('here');
-//     }
-//     if(newPassword === '' && displayName === ''){
-//         await server.updatePlayer(req.session.userName,  null, null, avatar);
-//     }
-//     const avatar = req.file;
-//     const hashedpassword = bcrypt.hashSync(newPassword, saltRounds);
-//     await server.updatePlayer(req.session.userName, displayName, hashedpassword, avatar);
-//     res.redirect('/profile');
-// });
-
 app.post('/profile/change/avatar', upload.single('avatar'), async (req, res) => {
     const avatar = req.file;
     await server.updateAvatar(req.session.userName, avatar);
@@ -265,7 +249,9 @@ app.post('/profile/change/password', async (req, res) => {
  * @param {Number} PORT
  * @returns
  */
-app.listen(PORT, () => {
-    // console.log('Example app listening on port https://localhost:8080');
-    console.log(`Example app listening on port ${PORT}`);
+
+server.connectToDb().then(() => {
+    app.listen(PORT, () => {
+        console.log(`Example app listening on port ${PORT}`);
+    });
 });
