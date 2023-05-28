@@ -1,0 +1,100 @@
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Russo+One');
+  body{
+      margin:0;
+  }
+  .navbar {
+      position: fixed;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fef6f6cb;
+      color: #000000;
+      padding: 10px;
+    }
+    
+    .navbar__left {
+      font-family: 'Russo One', sans-serif;
+      color:rgb(120, 42, 172);
+      flex-grow: 1;
+    }
+    
+    .navbar__brand {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    
+    .navbar__right {
+      border-right: 25px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .navbar__profile {
+      padding-right: 25px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    
+    .navbar__profile-picture {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+    
+    .navbar__dropdown {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      display: none;
+    }
+    
+    .navbar__profile:hover .navbar__dropdown {
+      display: block;
+    }
+    
+    .profile,
+    .logout {
+      padding:0%;
+      display: block;
+      color: #333;
+      text-decoration: none;
+      padding: 8px 12px;
+      transition: background-color 0.3s ease;
+    }
+    
+    .profile:hover,
+    .logout:hover {
+      background-color: #e6e6e6;
+    }
+    .navbar__brand > a{
+      text-decoration: none;
+      color:rgb(120, 42, 172);
+    }
+    
+</style>
+<nav class="navbar">
+  <div class="navbar__left">
+    <span class="navbar__brand"><a href="/dashboard">GameMaster</a> </span>
+  </div>
+  <div class="navbar__right">
+    <div class="navbar__profile">
+      <img src="/avatar/<%=userName %>" alt="Profile Picture" class="navbar__profile-picture">
+      <div class="navbar__dropdown">
+        <a href="/profile" class="profile">Profile</a>
+        <a href="/leaderBoard" class="logout">LeaderBoard</a>
+        <a href="/logout" class="logout">Logout</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="space">
+    
+</div>

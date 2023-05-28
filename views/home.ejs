@@ -1,0 +1,107 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/login" method="post">
+        <input type="text" name="userName" id = "userName" placeholder="username">
+        <input type="password" name="password" id = "password" placeholder="password">
+        <input type="submit" value="login">
+    </form>
+    <form action="/regester" method="post" enctype="multipart/form-data">
+        <input type="text" name="userName" id="userName" placeholder="user name">
+        <input type="text" name="displayName" id="displayName" placeholder="display name">
+        <input type="password" name="password" id="password" placeholder="password">
+        <input type="file" name="avatar" id="avatar">
+        <input type="submit">
+    </form>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login and Registration Page</title>
+  <link rel="stylesheet" type="text/css" href="/css/home.css">
+</head>
+<body>
+  <div class="title">
+    GameMaster
+  </div>
+  <div class="container">
+    <h3 class = "note">We recommend to use big screens</h3>
+    <section id="login" class="form-section">
+        <form action="/login" method="post">
+          <h1>Login</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="userName" name="userName" placeholder="Enter your username">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+        <center>
+          <input type="submit" value="Login">
+        </center>
+        <div class="navigation">
+          <ul>
+            <li><a href="#login">Login</a></li>
+            <li><a href="#register">Register</a></li>
+          </ul>
+        </div>
+      </form>
+    </section>
+
+    <section id="register" class="form-section">
+        <form action="/regester" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+          <h1>Register</h1>
+        <div class="profile-picture">
+            <label for="avatar">
+              <img id="preview-image" src="/images/default-pr.png" alt="Profile Picture">
+              <input type="file" name="avatar" id="avatar" accept="image/*" onchange="previewImage(event)">
+            </label>
+          </div>
+          <center>
+            <p style="color:red">*Upload profile-picture by clicking above.</p>
+          </center>
+          <label for="nickname">Nick name:</label>
+		  <input type="text" id="displayName" name="displayName" placeholder="Choose a nickname">
+          <label for="username">Username:</label>
+          <input type="text" id="userName" name="userName" placeholder="Choose a username">
+          <label for="password">Password:</label>
+          <input type="password" id="rpassword" name="password" placeholder="Choose a password">
+          <label for="confirm_password">Confirm Password:</label>
+          <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password">
+          <center>
+              <input type="submit" value="Register">
+          </center>
+        <div class="navigation">
+          <ul>
+            <li><a href="#login"class="nav-link active">Login</a></li>
+            <li><a href="#register"class="nav-link">Register</a></li>
+          </ul>
+        </div>
+      </form>
+      <!-- <form action="/regester" method="post" enctype="multipart/form-data">
+        <input type="text" name="userName" id="userName" placeholder="user name">
+        <input type="text" name="displayName" id="displayName" placeholder="display name">
+        <input type="password" name="password" id="password" placeholder="password">
+        <br><br>
+        <input type="file" name="avatar" id="avatar">
+        <input type="submit">
+        <div class="navigation">
+          <ul>
+            <li><a href="#login"class="nav-link active">Login</a></li>
+            <li><a href="#register"class="nav-link">Register</a></li>
+          </ul>
+        </div>
+    </form> -->
+    </section>
+    
+</div>
+
+
+  <script src="/JS/home.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.space{
+    height: 150px;
+}
+.wrapper{
+  box-sizing: border-box;
+  text-align: center;
+  display:flex;
+  flex-direction: column;
+/*  background: linear-gradient(to right, #fc6767, #ec008c);*/
+  width:18.87em;
+  position:absolute;
+  border-radius: 0.6em;
+  box-shadow: 0 0.9em 2.8em rgba(86,66,0,0.2);
+  left:83%;
+  top:10%;
+/*  margin-top: 50px;*/
+  border-style: solid;
+  border-color:black;
+  transform:translate(-50%,-50%);
+  /*margin-left:50%;
+  height:50px;*/
+}
+.wrapper .high-score{
+    display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+}
+.wrapper .w1{
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+}
+.wrapper .w0{
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+}
+.wrapper .timer{
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+}
+
+.container .popup1 {
+      cursor: pointer;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100% ;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      visibility: hidden;
+      justify-content: center;
+    }
+
+.container .popup1 .popup-content {
+/*     visibility: hidden;*/
+      background: white;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      height: 200px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+.popup {
+  visibility: visible;
+   -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+body {
+
+/*    background-image: url("http://2.bp.blogspot.com/-Hay71C0l2Sc/T4LjLip3x7I/AAAAAAAABYU/u8QvvUVBS2I/s1600/04_Landscape.png");*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-left: 65vh;
+    margin-top: 10vh;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #33ccff 0%, #ff99cc 100%);
+}
+.btn{
+  width:80px;
+  height:40px;
+  border-radius: 5px;
+  margin-bottom:10px;
+  bottom:20%;
+  background:linear-gradient(to right, #fc6767, #ec008c); 
+}
+btn:hover{
+  opacity:0.5px;
+}
+
+
+.card .front-view img{
+    width: 40px;
+}
+
+.card .back-view img{
+    max-width: 80px;
+}
+
+.container{
+   
+    height: 500px;
+    width: 500px;
+    background: linear-gradient(to right, #fc6767, #ec008c);
+   
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 0 10px;
+}
+.cards,
+.card,
+.view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cards{
+    height: 100%;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.cards .card{
+    height: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
+    cursor: pointer;
+    
+    position: relative;
+    perspective: 800px;
+    transform-style: preserve-3d;
+}
+.cards .card .view{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    background-image: url("https://www.calculators.org/graphics/memory-games.png");
+    border-radius: 25px 0;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.616);
+
+    position: absolute;
+    transition: transform .25s linear;
+    backface-visibility: hidden;
+    pointer-events: none;
+    user-select: none;
+}
+.card .front-view span{
+
+    font-size: 40px;
+    color: #6563ff;
+}
+.card .back-view{
+    /* display: none; */
+    
+    transform: rotateY(-180deg);
+}
+
+ 
+
+
+/*JS 3*/
+.card.flip .back-view{
+    transform: rotateY(0);
+}
+.card.flip .front-view{
+    transform: rotateY(180deg);
+}
+/*JS 7.2*/
+.card.shake{
+    animation: shake 0.35s ease-in-out;
+}
+
+audio {
+  display: none;
+}
+
+/*.board-container {
+    position: relative;
+}
+.board,
+.win {
+    border-radius: 5px;
+    box-shadow: 0 25px 50px rgb(33 33 33 / 25%);
+    background: linear-gradient(135deg,  #03001e 0%,#7303c0 0%,#ec38bc 50%, #fdeff9 100%);
+    transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    backface-visibility: hidden;
+}
+.board {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 20px;
+}
+.board-container.flipped .board {
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+.board-container.flipped .win {
+    transform: rotateY(0) rotateZ(0);
+}*/
+
+@keyframes shake {
+    0%, 100%{
+        transform: translateX(0);
+    }
+    20%{
+        transform: translateX(-13px);
+    }
+    40%{
+        transform: translateX(13px);
+    }
+    60%{
+        transform: translateX(-8px);
+    }
+    80%{
+        transform: translateX(8px);
+    }
+}
+

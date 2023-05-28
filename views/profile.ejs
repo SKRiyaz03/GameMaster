@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <link rel="stylesheet" type="text/css" href="/css/profile.css">
+
+</head>
+
+<body>
+  <%- include('nav'); -%>
+    <div class="content">
+      <img class="profile-pic" src="/avatar/<%=userName%>" alt="Profile Picture" />
+      <h1>
+        <%=playerName%>
+      </h1>
+      <center>
+        <div class="tab">
+          <table>
+            <tr>
+              <th>
+                <h3>Game</h3>
+              </th>
+              <th>
+                <h3>High Score</h3>
+              </th>
+            </tr>
+            <% for(var i=0; i < scoreCard.length; i++) { %>
+              <tr>
+                <td>
+                  <img src="/images/gamelogos/<%=scoreCard[i].gameName %>.png" alt="Profile Picture" class="game-logo">
+                  <h4>
+                    <%=scoreCard[i].gameName%>
+                  </h4>
+                </td>
+                <td>
+                  <h4>
+                    <%=scoreCard[i].highScore%>
+                  </h4>
+                </td>
+              </tr>
+              <%}%>
+          </table>
+      </center>
+    </div>
+    <br><br>
+
+    
+      <!-- <div class="password-change">
+        <form action="/password-change" method="POST">
+          <h2>Change Password</h2><br>
+          <input type="password" id="current-password" name="current-password" required
+            placeholder="Current Password" /><br />
+          <input type="password" id="new-password" name="new-password" required placeholder="New Password" />
+          <br />
+          <center>
+            <input type="submit" value="Change Password" />
+          </center>
+        </form>
+      </div>
+      <div class="account-deletion">
+        <form action="/delete-account" method="POST">
+          <h2>Delete Account</h2><br>
+          <textarea id="deletion-reason" name="deletion-reason" required
+            placeholder="Reason for Account Deletion"></textarea><br />
+          <center>
+            <input class="delete-button" type="submit" value="Delete Account" />
+          </center>
+        </form>
+      </div>
+      <div class="account-deletion">
+        <form action="/delete-account" method="POST">
+          <h2>Change Display Name</h2><br>
+          <input type="text" id="displayName" name="displayName" required placeholder="New Display Name" /><br />
+          <center>
+            <input type="submit" value="Submit" />
+          </center>
+        </form>
+      </div>
+    </div> -->
+    <center>
+    <form action="/profile/change/avatar" method="post" enctype="multipart/form-data">
+      <!-- <label for="avatar">Update Avatar</label>
+      <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg"> -->
+      <label for="avatar">Update Avatar</label>
+      <div class="profile-picture">
+        <label for="avatar">
+          <img id="preview-image" src="/images/default-pr.png" alt="Profile Picture">
+          <input type="file" name="avatar" id="avatar" accept="image/png, image/jpeg" onchange="previewImage(event)">
+        </label>
+      </div>
+      <p style="color:red">*Update avatar by clicking above.</p>
+      <input type="submit" value="Submit">
+    </form>
+    <br><br>
+    <form action="/profile/change/displayName" method="post">
+      <label for="displayName">Change Display Name</label>
+      <input type="text" id="displayName" name="displayName" placeholder="New Display Name" /><br />
+      <input type="submit" value="Submit">
+    </form>
+    <!-- <label for="current-password">Current Password</label>
+          <input type="password" id="current-password" name="current-password" required placeholder="Current Password" /><br /> -->
+
+    <form action="/profile/change/password" method="post">
+      <label for="new-password">Change Password</label>
+      <input type="password" id="newPassword" name="newPassword" placeholder="New Password" /><br />
+      <input type="submit" value="Submit">
+    </form>
+    </div>
+  </center>
+    <script src="/JS/profile.js"></script>
+</body>
+
+</html>
