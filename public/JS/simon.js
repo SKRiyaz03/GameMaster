@@ -6,6 +6,10 @@ $(document).on("keypress",function(){
     if(level == 0)
         nextSequence();
 });
+$(document).on("touchstart",function(){
+    if(level == 0)
+        nextSequence();
+});
 $(".btn").on("click", function(event){
     // var buttonId = event.target.id;
     var buttonId = $(this).attr("id");
