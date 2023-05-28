@@ -1,2 +1,2 @@
-# GameMaster
-webTechonologies project
+# GameCenter
+Web Technologies Project

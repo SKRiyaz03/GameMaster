@@ -1,0 +1,137 @@
+body {
+    background-image: url("/images/leaderboard_background.png");
+    border: 5px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: calc(100vw) calc(100vh);
+  }
+@media screen and (max-width: 1000px) {
+/* Media query for smaller screens */
+body {
+    /* New background image for smaller screens */
+    background-image:none;
+    background-color: rgb(245, 238, 228);
+}
+}
+.space{
+  width: 100%;
+  height: 70px;
+}
+.leaderboard {
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.leaderboard h1{
+    font-family: 'Russon One', cursive;
+    font-size: 3rem;
+    margin:  5%;
+    margin-top: 200px;
+    margin-top:0%;
+    color: #ffd000;
+}
+
+
+
+
+#player-card0{
+    background-color: rgba(255, 232, 101, 0.712);
+    border: gold 3px solid;
+}
+#player-card1{
+    background-color: rgba(219, 219, 219, 0.712);
+    border: silver 3px solid;
+}
+#player-card2{
+    background-color: rgba(205, 127, 50, 0.712);
+    border: #cd7f32 3px solid;
+}
+/* .player-card{
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgba(140, 232, 255, 0.687);
+    width: 50%;
+    height: 70px;
+    border-radius: 20px;
+    border: lightblue 3px solid;
+    gap: 10px;
+  } */
+.player-card:hover{
+    transform: translateY(-10px);
+    scale:0.99;
+  }
+.player-card p{
+    font-family: 'Russo One';
+    color: white;
+    font-size: 1em;
+    /* text sizing */
+    text-size-adjust: auto;
+    margin: 10px;
+  }
+/* .player-card img {
+    align-self: flex-start;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 5px;
+  }
+  .player-card h3{
+    align-self: center;
+    margin: 5px;
+    font-family: 'Russo One' sans-serif;
+    font-size: 1.5em;
+    color: white;
+  } */
+  .player-card {
+    display: flex;
+    background-color: rgba(140, 232, 255, 0.687);
+    width: 50%;
+    height: 70px;
+    border-radius: 20px;
+    border: lightblue 3px solid;
+    align-items: center;
+    justify-content: space-between; /* Add this line to align items horizontally */
+    padding: 0 10px; /* Add some padding for spacing */
+  }
+  
+  .player-card h3 {
+    margin: 5px 0; /* Adjust margin for the rank */
+  }
+  
+  .player-card img {
+    margin-left: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px; /* Add some spacing between the image and high score */
+  }
+  
+  .player-card .high-score {
+    text-align: end;
+    font-family: 'Russo One';
+    flex-grow : 1; /* Add this line to make the paragraph take up the remaining space */
+    color: white;
+    font-size: 1em;
+    margin: 0; /* Remove default margin */
+  }
+  
+  
+
+
+  @media (max-width: 1000px) {
+    .player-card .high-score {
+      display: none; /* Hide the paragraph element */
+    }
+  }
+@media screen and (max-width: 500px) {
+  .player-card h3, p{
+    display: none;
+  }
+}
