@@ -64,7 +64,7 @@ module.exports.validateLogin = async (username, password) => {
   const player = await getPlayer(username);
   if (player != null) {
     const result = await bcrypt.compare(password, player.password);
-    if (result) {
+    if (result) { 
       return 1;
     } else {
       return 0;

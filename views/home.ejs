@@ -37,9 +37,9 @@
         <form action="/login" method="post">
           <h1>Login</h1>
         <label for="username">Username:</label>
-        <input type="text" id="userName" name="userName" placeholder="Enter your username">
+        <input type="text" id="userName" name="userName" placeholder="Enter your username" required>
         <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter your password">
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
         <center>
           <input type="submit" value="Login">
         </center>
@@ -58,20 +58,20 @@
         <div class="profile-picture">
             <label for="avatar">
               <img id="preview-image" src="/images/default-pr.png" alt="Profile Picture">
-              <input type="file" name="avatar" id="avatar" accept="image/*" onchange="previewImage(event)">
+              <input type="file" name="avatar" id="avatar" accept="image/*" onchange="previewImage(event)" required>
             </label>
           </div>
           <center>
             <p style="color:red">*Upload profile-picture by clicking above.</p>
           </center>
           <label for="nickname">Nick name:</label>
-		  <input type="text" id="displayName" name="displayName" placeholder="Choose a nickname">
+		  <input type="text" id="displayName" name="displayName" placeholder="Choose a nickname" required>
           <label for="username">Username:</label>
-          <input type="text" id="userName" name="userName" placeholder="Choose a username">
+          <input type="text" id="userName" name="userName" placeholder="Choose a username" required>
           <label for="password">Password:</label>
-          <input type="password" id="rpassword" name="password" placeholder="Choose a password">
+          <input type="password" id="rpassword" name="password" placeholder="Choose a password" required>
           <label for="confirm_password">Confirm Password:</label>
-          <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password">
+          <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password" required>
           <center>
               <input type="submit" value="Register">
           </center>
